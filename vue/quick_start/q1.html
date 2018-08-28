@@ -1,0 +1,35 @@
+<div id="appe">
+	<h1>
+		Hello, {{ exampleName }}!
+		<strong v-if="exampleName.length > 5">
+			- TOO LONG
+			<button @click="removeK()">
+				remove
+			</button>
+		</strong>
+		<strong v-if="exampleName.length <= 5">
+			- TOO SHORT
+			<button @click="addK()">
+				add
+			</button>
+		</strong>
+	</h1>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script type="text/javascript">
+	const app = new Vue({
+		el: '#appe',
+		data: {
+			exampleName: "WW"
+		},
+		methods:{
+			addK(){
+				this.exampleName += "k"
+			},
+			removeK(){
+				this.exampleName = this.exampleName.slice(0, -1)
+			}
+		}
+	})
+</script>
